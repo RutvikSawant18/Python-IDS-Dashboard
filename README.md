@@ -1,76 +1,51 @@
-\# 🛡️ Network Flight Recorder (NFR) \& IDS Dashboard
+# 👾 Pocket SOC V2.0: Cyberpunk Threat Hunter
+> *A real-time Network Intrusion Detection System (IDS) wrapped in a professional Cyberpunk SOC interface.*
 
-
-
-A custom-built Network Intrusion Detection System (IDS) and traffic analyzer. This tool captures network packets in real-time, logs them for forensic analysis, and visualizes the data via a web-based dashboard.
-
-
-
-\*\*Author:\*\* Rutvik Sawant  
-
-\*\*Tech Stack:\*\* Python, Flask, Scapy, Pandas
+**Author:** Rutvik Sawant
+**Tech Stack:** Python, Flask, Scapy, Pandas
 
 
 
 ---
 
+## 🚀 New in V2.0
+This tool has been upgraded from a simple "Flight Recorder" to a full **Security Operations Center (SOC)** dashboard.
+* **🕵️ Entropy-Based Detection:** Uses mathematical entropy analysis to detect high-randomness domains (often used by malware for C2 communication).
+* **🎨 Cyberpunk UI:** Custom CSS dashboard featuring neon-glow aesthetics, real-time threat tables, and a heads-up display (HUD).
+* **⚡ Live Monitoring:** Tracks HTTP, TCP, UDP, and ICMP packets in real-time.
 
+## 🛠️ Features
+* **Smart Sniffer:** Captures network traffic and filters it instantly using `Scapy`.
+* **Forensic Logging:** Automatically saves all traffic to a local `traffic_log.csv` (excluded from git for privacy).
+* **Threat Logic:**
+    * **Low Entropy:** Normal traffic (e.g., google.com) → `CLEAN`
+    * **High Entropy:** Suspicious traffic (e.g., `xjkq-99-bot.net`) → `THREAT`
 
-\## 🚀 Features
+## 💻 Installation & Usage
 
-\* \*\*Packet Sniffer:\*\* Captures HTTP, TCP, UDP, and ICMP traffic in real-time using `Scapy`.
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/RutvikSawant18/Python-IDS-Dashboard.git](https://github.com/RutvikSawant18/Python-IDS-Dashboard.git)
+    cd Python-IDS-Dashboard
+    ```
 
-\* \*\*Live Dashboard:\*\* Web interface built with `Flask` to visualize traffic patterns.
+2.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-\* \*\*Forensic Logging:\*\* Automatically saves captured packet data to `traffic\_log.csv` for analysis.
+3.  **Run the Sniffer (Administrator/Root required):**
+    ```bash
+    # This captures the traffic in the background
+    sudo python sniffer.py
+    ```
 
-\* \*\*Threat Detection:\*\* Basic signature matching for suspicious IPs and protocols.
-
-
-
----
-
-
-
-\## 🛠️ Installation
-
-
-
-1\.  \*\*Clone the repository:\*\*
-
-&nbsp;   ```bash
-
-&nbsp;   git clone \[https://github.com/RutvikSawant18/Python-IDS-Dashboard.git](https://github.com/RutvikSawant18/Python-IDS-Dashboard.git)
-
-&nbsp;   cd Python-IDS-Dashboard
-
-&nbsp;   ```
-
-
-
-2\.  \*\*Install dependencies:\*\*
-
-&nbsp;   ```bash
-
-&nbsp;   pip install -r requirements.txt
-
-&nbsp;   ```
-
-
+4.  **Launch the Dashboard:**
+    ```bash
+    # Open a new terminal and run:
+    python app.py
+    ```
+    *Open your browser and go to: `http://127.0.0.1:5000`*
 
 ---
-
-
-
-\## 💻 Usage
-
-
-
-\### Step 1: Start the Sniffer
-
-(Must run as Administrator/Root to capture packets)
-
-```bash
-
-python sniffer.py
-
+*Educational Purpose Only. Do not use on networks you do not own.*
